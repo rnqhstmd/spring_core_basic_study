@@ -4,7 +4,10 @@ import com.basic.basiccore.discount.DiscountPolicy;
 import com.basic.basiccore.member.domain.Member;
 import com.basic.basiccore.member.domain.repository.MemberRepository;
 import com.basic.basiccore.order.domain.Order;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
 
@@ -16,6 +19,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
     private final MemberRepository memberRepository;
 
+    @Autowired
     public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         this.discountPolicy = discountPolicy;
         this.memberRepository = memberRepository;
