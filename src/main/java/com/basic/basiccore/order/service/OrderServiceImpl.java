@@ -1,9 +1,11 @@
 package com.basic.basiccore.order.service;
 
+import com.basic.basiccore.common.annotation.MainDiscountPolicy;
 import com.basic.basiccore.discount.DiscountPolicy;
 import com.basic.basiccore.member.domain.Member;
 import com.basic.basiccore.member.domain.repository.MemberRepository;
 import com.basic.basiccore.order.domain.Order;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
 
     @Autowired
-    public OrderServiceImpl(DiscountPolicy discountPolicy, MemberRepository memberRepository) {
+    public OrderServiceImpl(@MainDiscountPolicy DiscountPolicy discountPolicy, MemberRepository memberRepository) {
         this.discountPolicy = discountPolicy;
         this.memberRepository = memberRepository;
     }
